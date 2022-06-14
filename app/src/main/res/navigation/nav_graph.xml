@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/standingsFragment">
+
+    <fragment
+        android:id="@+id/standingsFragment"
+        android:name="com.example.football_app.view.StandingsFragment"
+        android:label="fragment_standings"
+        tools:layout="@layout/fragment_standings" />
+    <fragment
+        android:id="@+id/leagueFragment"
+        android:name="com.example.football_app.view.LeagueFragment"
+        android:label="fragment_league"
+        tools:layout="@layout/fragment_league" />
+</navigation>
