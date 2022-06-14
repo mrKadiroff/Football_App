@@ -56,6 +56,7 @@ class StandingsAdapter (var list: List<com.example.football_app.network.leaguecl
                                 .show()
                         }
 
+                        //sdsdsdsdsd
 
                     }
                 }
