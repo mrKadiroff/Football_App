@@ -2,19 +2,27 @@ package com.example.football_app.view
 
 import android.os.Bundle
 import android.util.Log
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.example.football_app.R
+import android.widget.Toast
+import androidx.fragment.app.Fragment
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
+import com.example.football_app.database.AppDatabase
 import com.example.football_app.databinding.FragmentStandingsBinding
 import com.example.football_app.network.RetrofitClient
-import com.example.football_app.network.leagueclass.LeagueResult
-import com.example.football_app.network.standingsclass.Standings
+import com.example.football_app.network.RetrofitService
+import com.example.football_app.repositories.UserRepository
+import com.example.football_app.utils.NetworkHelper
+import com.example.football_app.utils.Status
 import com.example.football_app.view.adapters.StandingsAdapter
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
+import com.example.football_app.viewmodels.UserViewModel
+import com.example.football_app.viewmodels.ViewModelFactory
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
+
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -42,51 +50,53 @@ class StandingsFragment : Fragment() {
     lateinit var binding: FragmentStandingsBinding
     lateinit var adapter: StandingsAdapter
     private val TAG = "StandingsFragment"
+    lateinit var appDatabase: AppDatabase
+    lateinit var userViewModel: UserViewModel
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
         binding = FragmentStandingsBinding.inflate(layoutInflater, container, false)
-
-                RetrofitClient.apiService().getLeagues().enqueue(object:
-                    Callback<LeagueResult> {
-            override fun onResponse(call: Call<LeagueResult>, response: Response<LeagueResult>) {
-                if (response.isSuccessful){
-                    val body = response.body()
-                    Log.d(TAG, "onResponse: ${body!!.data}")
-                    adapter = StandingsAdapter(body.data)
-                    binding.rv.adapter = adapter
-                }
-            }
-
-            override fun onFailure(call: Call<LeagueResult>, t: Throwable) {
-                Log.d(TAG, "onFailure: ${t.message}")
-            }
-
-        })
+        appDatabase = AppDatabase.getInstance(binding.root.context)
+        val userRepository = UserRepository(RetrofitClient.apiService(),AppDatabase.getInstance(binding.root.context))
+        val networkHelper = NetworkHelper(binding.root.context )
+        userViewModel = ViewModelProvider(this, ViewModelFactory(userRepository,networkHelper))[UserViewModel::class.java]
 
 
 
 
-//        RetrofitClient.apiService().getStandings("arg.1").enqueue(object:
-//            Callback<Standings> {
-//            override fun onResponse(call: Call<Standings>, response: Response<Standings>) {
-//                if (response.isSuccessful){
-//                    val body = response.body()
-//                    Log.d(TAG, "onResponse: ${body!!.data}")
-//
-//                }
-//            }
-//
-//            override fun onFailure(call: Call<Standings>, t: Throwable) {
-//                Log.d(TAG, "onFailure: ${t.message}")
-//            }
-//
-//        })
+        GlobalScope.launch(Dispatchers.Main) {
+            userViewModel.getWord()
+                .observe(viewLifecycleOwner) {
 
 
-        return binding.root
+                    when (it.status) {
+                        Status.LOADING -> {
+
+                        }
+
+                        Status.ERROR -> {
+                            Log.d(TAG, "onCreateView: ${it.message}")
+                        }
+
+                        Status.SUCCESS -> {
+
+                            Log.d(TAG, "onCreateView: ${it.data}")
+
+
+                        }
+                    }
+                }}
+
+
+
+
+
+
+
+
+                    return binding.root
     }
 
     companion object {

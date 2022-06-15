@@ -17,5 +17,4 @@ object RetrofitClient {
     fun apiService() :RetrofitService{
         return getRetrofit().create(RetrofitService::class.java)
     }
-
 }

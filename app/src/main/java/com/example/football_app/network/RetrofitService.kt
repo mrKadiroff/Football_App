@@ -11,16 +11,16 @@ import retrofit2.http.Query
 interface RetrofitService {
 
     @GET("leagues/{word}/standings")
-    fun getStandings(
+    suspend fun getStandings(
         @Path("word") word:String,
         @Query("season") season:String = "2021",
         @Query("sort") sort:String = "asc"
-    ): Call<Standings>
+    ): Standings
 
 
     @GET("leagues")
-    fun getLeagues(
-    ): Call<LeagueResult>
+    suspend fun getLeagues(
+    ): LeagueResult
 
 
 }

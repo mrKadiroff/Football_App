@@ -27,45 +27,45 @@ class StandingsAdapter (var list: List<com.example.football_app.network.leaguecl
 
 
 
-            RetrofitClient.apiService().getStandings(malumotlar.id).enqueue(object:
-                Callback<Standings> {
-                override fun onResponse(call: Call<Standings>, response: Response<Standings>) {
-                    if (response.isSuccessful){
-                        val body = response.body()
-                        malumotItemBinding.club1.text = body!!.data.standings[0].team.name
-                        malumotItemBinding.draw1.text = body!!.data.standings[0].stats[2].value.toString()
-                        malumotItemBinding.lose1.text = body!!.data.standings[0].stats[1].value.toString()
-
-                        try {
-                            Glide.with(malumotItemBinding.root.context).load(body.data.standings[0].team.logos[0].href).into(malumotItemBinding.logo1)
-                        }catch (e:Exception){
-                            Toast.makeText(malumotItemBinding.root.context, e.message, Toast.LENGTH_SHORT)
-                                .show()
-                        }
-
-
-
-                        malumotItemBinding.club2.text = body!!.data.standings[1].team.name
-                        malumotItemBinding.draw2.text = body!!.data.standings[1].stats[2].value.toString()
-                        malumotItemBinding.lose2.text = body!!.data.standings[1].stats[1].value.toString()
-
-                        try {
-                            Glide.with(malumotItemBinding.root.context).load(body.data.standings[1].team.logos[0].href).into(malumotItemBinding.logo2)
-                        }catch (e:Exception){
-                            Toast.makeText(malumotItemBinding.root.context, e.message, Toast.LENGTH_SHORT)
-                                .show()
-                        }
-
-                        //sdsdsdsdsd
-
-                    }
-                }
-
-                override fun onFailure(call: Call<Standings>, t: Throwable) {
-
-                }
-
-            })
+//            RetrofitClient.apiService().getStandings(malumotlar.id).enqueue(object:
+//                Callback<Standings> {
+//                override fun onResponse(call: Call<Standings>, response: Response<Standings>) {
+//                    if (response.isSuccessful){
+//                        val body = response.body()
+//                        malumotItemBinding.club1.text = body!!.data.standings[0].team.name
+//                        malumotItemBinding.draw1.text = body!!.data.standings[0].stats[2].value.toString()
+//                        malumotItemBinding.lose1.text = body!!.data.standings[0].stats[1].value.toString()
+//
+//                        try {
+//                            Glide.with(malumotItemBinding.root.context).load(body.data.standings[0].team.logos[0].href).into(malumotItemBinding.logo1)
+//                        }catch (e:Exception){
+//                            Toast.makeText(malumotItemBinding.root.context, e.message, Toast.LENGTH_SHORT)
+//                                .show()
+//                        }
+//
+//
+//
+//                        malumotItemBinding.club2.text = body!!.data.standings[1].team.name
+//                        malumotItemBinding.draw2.text = body!!.data.standings[1].stats[2].value.toString()
+//                        malumotItemBinding.lose2.text = body!!.data.standings[1].stats[1].value.toString()
+//
+//                        try {
+//                            Glide.with(malumotItemBinding.root.context).load(body.data.standings[1].team.logos[0].href).into(malumotItemBinding.logo2)
+//                        }catch (e:Exception){
+//                            Toast.makeText(malumotItemBinding.root.context, e.message, Toast.LENGTH_SHORT)
+//                                .show()
+//                        }
+//
+//                        //sdsdsdsdsd
+//
+//                    }
+//                }
+//
+//                override fun onFailure(call: Call<Standings>, t: Throwable) {
+//
+//                }
+//
+//            })
 
 
 
