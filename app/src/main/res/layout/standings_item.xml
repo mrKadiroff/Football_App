@@ -17,14 +17,18 @@
 
     <TextView
         android:id="@+id/league_Name"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="12dp"
-        android:text="La liga"
+        android:text="La ligas"
+        android:maxLines="1"
+        android:paddingEnd="4dp"
         android:textColor="@color/white"
-        android:textSize="20sp"
+        android:textSize="18sp"
         android:textStyle="bold"
+        android:layout_marginEnd="6dp"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/goo"
         app:layout_constraintStart_toEndOf="@id/flag"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.05" />
@@ -40,6 +44,7 @@
         android:text="Spain"/>
 
     <ImageView
+        android:id="@+id/goo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@drawable/ic_baseline_arrow_forward_ios_24"
@@ -104,6 +109,7 @@
                   android:layout_weight="1"/>
 
               <TextView
+
                   android:layout_width="match_parent"
                   android:layout_height="match_parent"
                   android:textColor="@color/white"
@@ -189,6 +195,7 @@
                     android:layout_weight="1"/>
 
                 <TextView
+                    android:id="@+id/ga1"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:textColor="@color/white"
@@ -198,6 +205,7 @@
                     android:layout_weight="1"/>
 
                 <TextView
+                    android:id="@+id/gd1"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:textColor="@color/white"
@@ -207,6 +215,7 @@
                     android:layout_weight="1"/>
 
                 <TextView
+                    android:id="@+id/pts1"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:textColor="@color/white"
@@ -270,6 +279,7 @@
                     android:layout_weight="1"/>
 
                 <TextView
+                    android:id="@+id/ga2"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:textColor="@color/white"
@@ -279,6 +289,7 @@
                     android:layout_weight="1"/>
 
                 <TextView
+                    android:id="@+id/gd2"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:textColor="@color/white"
@@ -288,6 +299,7 @@
                     android:layout_weight="1"/>
 
                 <TextView
+                    android:id="@+id/pts2"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:textColor="@color/white"
@@ -332,6 +344,7 @@
                 </LinearLayout>
 
                 <TextView
+                    android:id="@+id/draw3"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:textColor="@color/white"
@@ -341,6 +354,7 @@
                     android:layout_weight="1"/>
 
                 <TextView
+                    android:id="@+id/lose3"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:textColor="@color/white"
@@ -350,6 +364,7 @@
                     android:layout_weight="1"/>
 
                 <TextView
+                    android:id="@+id/ga3"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:textColor="@color/white"
@@ -359,6 +374,7 @@
                     android:layout_weight="1"/>
 
                 <TextView
+                    android:id="@+id/gd3"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:textColor="@color/white"
@@ -368,6 +384,7 @@
                     android:layout_weight="1"/>
 
                 <TextView
+                    android:id="@+id/pts3"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:textColor="@color/white"
@@ -412,6 +429,7 @@
                 </LinearLayout>
 
                 <TextView
+                    android:id="@+id/draw4"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:textColor="@color/white"
@@ -421,6 +439,7 @@
                     android:layout_weight="1"/>
 
                 <TextView
+                    android:id="@+id/lose4"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:textColor="@color/white"
@@ -430,6 +449,7 @@
                     android:layout_weight="1"/>
 
                 <TextView
+                    android:id="@+id/ga4"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:textColor="@color/white"
@@ -439,6 +459,7 @@
                     android:layout_weight="1"/>
 
                 <TextView
+                    android:id="@+id/gd4"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:textColor="@color/white"
@@ -448,6 +469,7 @@
                     android:layout_weight="1"/>
 
                 <TextView
+                    android:id="@+id/pts4"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:textColor="@color/white"

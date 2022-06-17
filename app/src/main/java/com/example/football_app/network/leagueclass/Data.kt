@@ -4,6 +4,7 @@ import androidx.room.Embedded
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 import androidx.room.TypeConverters
+import java.io.Serializable
 
 @Entity(tableName = "users")
 data class Data(
@@ -16,4 +17,4 @@ data class Data(
     val slug: String
 
 
-)
+):Serializable

@@ -3,9 +3,23 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/Intel i3-9100F/AndroidStudioProjects/Football_App/app/src/main/res/drawable/item_shape.xml" value="0.2235" />
+        <entry key="..\:/Users/Intel i3-9100F/AndroidStudioProjects/Football_App/app/src/main/res/drawable/item_shape2.xml" value="0.2235" />
+        <entry key="..\:/Users/Intel i3-9100F/AndroidStudioProjects/Football_App/app/src/main/res/drawable/seasons_shape.xml" value="0.2235" />
+        <entry key="..\:/Users/Intel i3-9100F/AndroidStudioProjects/Football_App/app/src/main/res/drawable/tab_item_back_selected.xml" value="0.155" />
+        <entry key="..\:/Users/Intel i3-9100F/AndroidStudioProjects/Football_App/app/src/main/res/drawable/tab_item_back_unselected.xml" value="0.155" />
         <entry key="..\:/Users/Intel i3-9100F/AndroidStudioProjects/Football_App/app/src/main/res/layout/activity_main.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/Intel i3-9100F/AndroidStudioProjects/Football_App/app/src/main/res/layout/fragment_all.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/Intel i3-9100F/AndroidStudioProjects/Football_App/app/src/main/res/layout/fragment_away.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/Intel i3-9100F/AndroidStudioProjects/Football_App/app/src/main/res/layout/fragment_home.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/Intel i3-9100F/AndroidStudioProjects/Football_App/app/src/main/res/layout/fragment_league.xml" value="0.22871376811594202" />
+        <entry key="..\:/Users/Intel i3-9100F/AndroidStudioProjects/Football_App/app/src/main/res/layout/fragment_matches.xml" value="0.25905797101449274" />
         <entry key="..\:/Users/Intel i3-9100F/AndroidStudioProjects/Football_App/app/src/main/res/layout/fragment_standings.xml" value="0.25" />
+        <entry key="..\:/Users/Intel i3-9100F/AndroidStudioProjects/Football_App/app/src/main/res/layout/fragment_table.xml" value="0.3383152173913043" />
+        <entry key="..\:/Users/Intel i3-9100F/AndroidStudioProjects/Football_App/app/src/main/res/layout/item_tab.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/Intel i3-9100F/AndroidStudioProjects/Football_App/app/src/main/res/layout/seasons_layout.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/Intel i3-9100F/AndroidStudioProjects/Football_App/app/src/main/res/layout/standings_item.xml" value="0.33" />
+        <entry key="..\:/Users/Intel i3-9100F/AndroidStudioProjects/Football_App/app/src/main/res/layout/standings_item2.xml" value="0.36666666666666664" />
       </map>
     </option>
   </component>

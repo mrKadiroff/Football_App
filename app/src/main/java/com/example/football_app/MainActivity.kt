@@ -3,6 +3,7 @@ package com.example.football_app
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import androidx.appcompat.app.AppCompatDelegate
 import com.example.football_app.network.RetrofitClient
 import com.example.football_app.network.standingsclass.Standings
 import retrofit2.Call
@@ -14,6 +15,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
 
 
 //        RetrofitClient.apiService().getStandings().enqueue(object:

@@ -1,6 +1,7 @@
 package com.example.football_app.network
 
 import com.example.football_app.network.leagueclass.LeagueResult
+import com.example.football_app.network.seasons.SeasonsResult
 import com.example.football_app.network.standingsclass.Standings
 import retrofit2.Call
 import retrofit2.Response
@@ -16,6 +17,20 @@ interface RetrofitService {
         @Query("season") season:String = "2021",
         @Query("sort") sort:String = "asc"
     ): Standings
+
+    @GET("leagues/{word}/seasons")
+    suspend fun getSeasons(
+        @Path("word") word:String
+    ): SeasonsResult
+
+
+
+    @GET("leagues/{word}/standings")
+    fun getStandings2(
+        @Path("word") word:String,
+        @Query("season") season:String = "2021",
+        @Query("sort") sort:String = "asc"
+    ): Call<Standings>
 
 
     @GET("leagues")

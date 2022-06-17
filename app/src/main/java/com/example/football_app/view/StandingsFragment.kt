@@ -5,20 +5,23 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
+import com.example.football_app.R
 import com.example.football_app.database.AppDatabase
 import com.example.football_app.databinding.FragmentStandingsBinding
 import com.example.football_app.network.RetrofitClient
-import com.example.football_app.network.RetrofitService
+import com.example.football_app.network.leagueclass.Data
 import com.example.football_app.repositories.UserRepository
 import com.example.football_app.utils.NetworkHelper
 import com.example.football_app.utils.Status
 import com.example.football_app.view.adapters.StandingsAdapter
+import com.example.football_app.view.adapters.UserAdapter
 import com.example.football_app.viewmodels.UserViewModel
 import com.example.football_app.viewmodels.ViewModelFactory
+import com.google.android.gms.ads.AdRequest
+import com.google.android.gms.ads.MobileAds
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
@@ -50,6 +53,7 @@ class StandingsFragment : Fragment() {
     lateinit var binding: FragmentStandingsBinding
     lateinit var adapter: StandingsAdapter
     private val TAG = "StandingsFragment"
+    private lateinit var userAdapter: UserAdapter
     lateinit var appDatabase: AppDatabase
     lateinit var userViewModel: UserViewModel
     override fun onCreateView(
@@ -62,6 +66,16 @@ class StandingsFragment : Fragment() {
         val userRepository = UserRepository(RetrofitClient.apiService(),AppDatabase.getInstance(binding.root.context))
         val networkHelper = NetworkHelper(binding.root.context )
         userViewModel = ViewModelProvider(this, ViewModelFactory(userRepository,networkHelper))[UserViewModel::class.java]
+
+
+//        userAdapter = UserAdapter(userViewModel,viewLifecycleOwner)
+//        binding.rv.adapter = userAdapter
+
+        MobileAds.initialize(binding.root.context) {}
+
+        val adRequest = AdRequest.Builder().build()
+        binding.adView.loadAd(adRequest)
+
 
 
 
@@ -82,12 +96,46 @@ class StandingsFragment : Fragment() {
 
                         Status.SUCCESS -> {
 
-                            Log.d(TAG, "onCreateView: ${it.data}")
+//                            Log.d(TAG, "onCreateView: ${it.data}")
+//                           userAdapter.submitList(it.data)
+                            adapter = StandingsAdapter(it.data!!,networkHelper,appDatabase,object :StandingsAdapter.OnItemClickListener{
+                                override fun onItemClick(malumotlar: Data) {
+                                    var bundle = Bundle()
+                                    bundle.putSerializable("liga",malumotlar)
+                                    findNavController().navigate(R.id.leagueFragment,bundle)
+                                }
 
+                            })
+                            binding.rv.adapter = adapter
 
                         }
                     }
                 }}
+
+
+
+//        GlobalScope.launch(Dispatchers.Main) {
+//            userViewModel.getStandings("arg.1")
+//                .observe(viewLifecycleOwner) {
+//
+//
+//                    when (it.status) {
+//                        Status.LOADING -> {
+//
+//                        }
+//
+//                        Status.ERROR -> {
+//                            Log.d(TAG, "onCreateView: ${it.message}")
+//                        }
+//
+//                        Status.SUCCESS -> {
+//
+//                            Log.d(TAG, "onCreateView: ${it.data}")
+//
+//
+//                        }
+//                    }
+//                }}
 
 
 

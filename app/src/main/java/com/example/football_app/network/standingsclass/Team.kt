@@ -1,5 +1,7 @@
 package com.example.football_app.network.standingsclass
 
+import androidx.room.Embedded
+
 data class Team(
     val abbreviation: String,
     val displayName: String,

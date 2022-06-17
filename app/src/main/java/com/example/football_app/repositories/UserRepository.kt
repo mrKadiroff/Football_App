@@ -14,5 +14,9 @@ class UserRepository(private val apiService: RetrofitService,
 
     suspend fun addUsers(list: List<Data>) = appDatabase.leagueDao().addLeagues(list)
 
+    suspend fun getStandings(id:String) = apiService.getStandings(id)
+
+    suspend fun getSeasons(id:String) = apiService.getSeasons(id)
+
 
 }
