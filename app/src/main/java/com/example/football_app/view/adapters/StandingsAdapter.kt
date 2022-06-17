@@ -141,6 +141,7 @@ class StandingsAdapter(
                 ).show()
             }
 
+            //succesfully completed
 
 
 
