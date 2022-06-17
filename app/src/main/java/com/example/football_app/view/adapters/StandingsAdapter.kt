@@ -141,7 +141,7 @@ class StandingsAdapter(
                 ).show()
             }
 
-            //succesfully completed
+            //succesfully completed krasavchik
 
 
 
